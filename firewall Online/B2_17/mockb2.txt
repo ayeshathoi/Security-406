@@ -1,0 +1,5 @@
+
+//router 
+//eth0 -> external
+iptables -A FORWARD -i eth0 -p tcp --dport 22 -j DROP 
+iptables -A FORWARD -i eth1 -p tcp --sport 22 -j DROP 

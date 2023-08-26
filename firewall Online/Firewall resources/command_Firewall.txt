@@ -1,0 +1,66 @@
+ssh -i ./xyz.pem azureuser@20.193.153.221
+ssh -i  Downloads/xyz.pem azureuser@20.193.153.221
+sudo su seed
+cd ~/Downloads/firewall/Labsetup/
+
+
+
+obj-m += b1.o
+
+all:
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+
+sudo insmod a1.ko
+lsmod | grep a1
+sudo rmmod a1
+sudo dmesg 
+sudo dmesg -C
+
+docker-compose build
+docker-compose up
+docker-compose down
+
+dcbuild
+dcup
+dcdown
+
+
+iptables [-t filter] -A INPUT  <rule>  -j <target>
+
+
+##########
+iptables -t nat -L -n --> List all the rules in a table without line number
+iptables -t nat -L -n --line-numbers
+iptables -t filter -D INPUT 2 -> Delete 2nd rules
+iptables -t filter -A INPUT 2 -j DROP --> Drop all incoming packets for 2nd rules
+
+
+//only icmp allowed others are not
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+iptables -P OUTPUT DROP
+iptables -P INPUT DROP
+
+
+//CLEANUP
+iptables -F
+
+
+//
+1. Outside hosts cannot ping internal hosts.
+2. Outside hosts can ping the router.
+3. Internal hosts can ping outside hosts.
+4. All other packets between the internal and external networks should be blocked.
+iptables -A FORWARD -p icmp --icmp-type echo-request -j DROP
+###
+1. All the internal hosts run a telnet server (listening to port 23). Outside hosts can only access the telnet
+server on 192.168.60.5, not the other internal hosts.
+2. Outside hosts cannot access other internal servers.
+3. Internal hosts can access all the internal servers.
+4. Internal hosts cannot access external servers.
+5. In this task, the connection tracking mechanism is not allowed. It will be used in a later task.
+iptables -A FORWARD -i eth0 -p tcp --sport 5000 -j ACCEPT
+

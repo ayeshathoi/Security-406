@@ -1,0 +1,36 @@
+//Router 10.9.0.11
+
+//1
+iptables -A FORWARD -i eth0 -p tcp --dport 23 -j ACCEPT
+iptables -A FORWARD -i eth1 -p tcp --sport 23 -j ACCEPT
+
+//2
+iptables -A FORWARD -i eth1 -s 192.168.60.7 -d 10.9.0.5 -p tcp --dport 23 -j ACCEPT 
+iptables -A FORWARD -i eth0 -s 10.9.0.5 -d 192.168.60.7 -p tcp --sport 23 -j ACCEPT
+
+//3
+// All hosts but 192.168.60.7
+iptables -A OUTPUT -p tcp --dport 23 -j DROP 
+
+//4  ---- 192.168.60.0/24 hosts 
+iptables -A OUTPUT -p icmp -j ACCEPT
+iptables -A INPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+//5
+// Rules for 10.9.0.5 
+iptables -A INPUT -p icmp -s 10.9.0.5 -d 10.9.0.11 -j ACCEPT
+iptables -A OUTPUT -p icmp -s 10.9.0.5 -d 192.168.60.5 -j ACCEPT
+iptables -A OUTPUT -p icmp -s 10.9.0.5 -d 192.168.60.6 -j DROP
+iptables -A OUTPUT -p icmp -s 10.9.0.5 -d 192.168.60.7 -j DROP
+ 
+//6  ---- 192.168.60.0/24 hosts 
+iptables -A INPUT -p icmp -s 192.168.60.0/24 -d 192.168.60.0/24 -j DROP
+
+//7
+// Rules for 10.9.0.1
+iptables -A OUTPUT -p icmp --icmp-type echo-request -j DROP   
+
+iptables -P OUTPUT ACCEPT
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+
