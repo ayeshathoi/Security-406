@@ -1,0 +1,43 @@
+----environment----
+ssh -i ./xyz.pem azureuser@20.193.153.221
+
+scp -i ./xyz.pem ~/Downloads/online.zip azureuser@20.193.153.221:resources.zip
+---------------------------------------------------------------------------------
+home azureuser e thakbe
+------------------------------
+sudo mv /home/azureuser/resources.zip /home/seed/Downloads/resources.zip
+-----------------------
+gcc -o stack stack.c
+-----
+sudo su seed
+--------------------
+cd ~
+cd Downloads
+mkdir 1805062
+--------------------------------------------------
+
+--------------------------------------------------
+rm B1.c
+rm exploit.c
+
+cat > exploit.py
+vim B1.c
+
+sudo sysctl -w kernel.randomize_va_space=0
+sudo ln -sf /bin/zsh /bin/sh
+gcc -m32 -o B1 -z execstack -fno-stack-protector B1.c
+sudo chown root B1
+sudo chmod 4755 B1
+touch badfile
+gcc -m32 -o B1_dbg -g -z execstack -fno-stack-protector B1.c
+
+gdb B1_dbg
+
+
+vim exploit.py
+
+python3 exploit.py
+./B1
+---------------------------------------------------
+Assembly to HEx:
+https://defuse.ca/online-x86-assembler.htm#disassembly

