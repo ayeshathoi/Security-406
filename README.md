@@ -1,7 +1,11 @@
-# Security-406
-offline 1 : AES, RSA, Diffie-Hellman, TCP Socket Programming <br/>
-Online  1 : Buffer overflow online <br/>
-Offline 2 : Malware Offline <br/>
-Online  2 : Firewall online <br/>
-Security Project Video Demo : https://youtu.be/rYk8i8jIKjM  <br/>
-![image](https://github.com/ayeshathoi/Security-406/assets/79919256/97f55332-7a05-4f82-bced-26cfdd41a1cd)
+## **`CSE 406` : Computer Security Sessional**
+
+- Offline 1 : [**Cryptosystem (AES, RSA, Diffie-hellman & TCP-Socket implementation**](https://github.com/ayeshathoi/Security-406/tree/main/offline%201)
+- Online  1 : [**Buffer Overflow**](https://github.com/ayeshathoi/Security-406/tree/main/BufferOverflow%20online%201%20material)
+- Offline 2 : [**Malware Assigment (FooWorm and Modification in AbraWorm)**](https://github.com/ayeshathoi/Security-406/tree/main/offline%202%20Malware%20Offline)
+- Online  1 : [**Firewall Exploration & Evasion**](https://github.com/ayeshathoi/Security-406/tree/main/firewall%20Online)
+
+- **`Term Project`**   
+  - [MISP : Malware Information Sharing Platform](https://github.com/ayeshathoi/Security-406/tree/main/MISP%20%3A%20Security%20Project)
+  - ***Video Demo*** : [Youtube Link](https://youtu.be/rYk8i8jIKjM)
+  - *Collaborator* : Sumonta Nandy Amit (1805069)
