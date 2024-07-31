@@ -6,6 +6,6 @@
 - Online  1 : [**Firewall Exploration & Evasion**](https://github.com/ayeshathoi/Security-406/tree/main/firewall%20Online) - Docker
 
 - **`Term Project`**   
-  - Threat Intelligence Tool - [MISP : Malware Information Sharing Platform](https://github.com/ayeshathoi/Security-406/tree/main/MISP%20%3A%20Security%20Project) | Installation , Functionalities Implementation & Documentation
+  - Threat Intelligence Tool - [MISP : Malware Information Sharing Platform](https://github.com/ayeshathoi/Security-406/tree/main/MISP%20%3A%20Security%20Project) | Installation (Docker or MISP User in Linux), Functionalities Implementation & Documentation
   - ***Video Demo*** : [Youtube Link](https://youtu.be/rYk8i8jIKjM)
   - *Collaborator* : Sumonta Nandy Amit (1805069)
